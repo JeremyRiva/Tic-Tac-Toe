@@ -1,5 +1,5 @@
 
-#include "mainClasses.cpp"
+#include "Game.h"
 #include <string>
 
 //void initialiseGame();

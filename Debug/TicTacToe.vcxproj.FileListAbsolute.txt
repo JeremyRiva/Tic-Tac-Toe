@@ -1,0 +1,2 @@
+C:\Users\jeremy riva\Desktop\Udacity-files\C++\TicTacToe\Debug\TicTacToe.exe
+C:\Users\jeremy riva\Desktop\Udacity-files\C++\TicTacToe\Debug\TicTacToe.pdb

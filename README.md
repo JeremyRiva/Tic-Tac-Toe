@@ -32,15 +32,14 @@ _i.e. if player 1 chooses (2, 3)_ the result will show as follows:
   
 ### Error messages
 
-If an invalid selection is chosen when the menu is diplayed, an error message is displayed before prompting the user to reselect a valid option:  
-`invalid option - try again`
+If an invalid selection is chosen when the menu is diplayed, an error message is displayed
+ before prompting the user to reselect a valid option: `invalid option - try again`
 
 During the game:  
 When the place is already taken on the board the following message is displayed:  
 `position has already been taken - try again`
 
-When the choice is out of range the following message is displayed:  
-`out of range - try again`
+When the choice is out of range the following message is displayed: `out of range - try again`
 
 
 

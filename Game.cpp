@@ -1,5 +1,5 @@
-#include "Game.h"
 
+#include "Game.h"
 
 Game::Game()
 {
@@ -40,13 +40,13 @@ void Game::printInfo()
 	for (int i{}; i < SIZE; i++) {
 		std::cout << "\t";
 		for (int j{}; j < SIZE; j++) {
-			std::cout << gameBoard[i][j] << " ";
+			std::cout << getPosition(i, j) << " ";
 		}
 		std::cout << std::endl;
 	}
 }
 
-int Game::fourInRow(char value) {
+int Game::checkFourInRow(char value) {
 	for (int i{}; i < SIZE; i++)
 	{
 		int rows{}, cols{}, diagR{}, diagL{};

@@ -3,39 +3,31 @@
 #include <string>
 
 //void initialiseGame();
-int nextMove(std::string player, int* coords);
-std::string namePlayer(std::string* name);
+
+std::string setPlayerName(std::string* name);
+int playerMove(std::string name, int *coords, Game &g, char val);
+int nextMove(std::string player, int *coords);
 
 int main()
 {
 	//initialiseGame();
 	std::string name1 = "player 1", name2 = "player 2";
-	namePlayer(&name1);
-	namePlayer(&name2);
+	setPlayerName(&name1);
+	setPlayerName(&name2);
 
-	Game game1;
+	Game game;
 	int coordinates[2]{};
-	game1.printInfo();
+	game.printInfo();
 	for (int n{}; n < 8; n++)
 	{
-		int playerMove;
-		do {
-			nextMove(name1, coordinates);
-			playerMove = game1.setPosition(coordinates[0], coordinates[1], 'x');
-		} while (playerMove == -1);
-
-		do {
-			nextMove(name2, coordinates);
-			playerMove = game1.setPosition(coordinates[0], coordinates[1], 'o');
-		} while (playerMove == -1);
-
-		game1.printInfo();
-
-		if (game1.fourInRow('x') == -1) {
+		playerMove(name1, coordinates, game, 'x');
+		playerMove(name2, coordinates, game, 'o');
+		
+		if (game.checkFourInRow('x') == -1) {
 			std::cout << name1 << " wins!" << std::endl;
 			return 0;
 		}
-		else if (game1.fourInRow('o') == -1) {
+		else if (game.checkFourInRow('o') == -1) {
 			std::cout << name2 << " wins!" << std::endl;
 			return 0;
 		}
@@ -45,6 +37,19 @@ int main()
 	std::cout << "\nIt is a draw!" << std::endl;
 }
 
+int playerMove(std::string name, int *coords, Game &g, char val) {
+
+	int userInput;
+	do {
+		nextMove(name, coords);
+		userInput = g.setPosition(coords[0], coords[1], val);
+	} while (userInput == -1);
+
+	g.printInfo();
+
+	return 0;
+}
+//**********************************************************
 /*
 void initialiseGame() {
 	std::cout << "============ MENU ============\n" << std::endl;
@@ -55,15 +60,15 @@ void initialiseGame() {
 
 }
 */
-
-int nextMove(std::string player, int* coords) {
+//*************************************************************
+int nextMove(std::string player, int *coords) {
 
 	std::cout << player << "'s turn - row, column: ";
 	std::cin >> coords[0] >> coords[1];
 	return *coords;
 }
 
-std::string namePlayer(std::string* name) {
+std::string setPlayerName(std::string* name) {
 	std::cout << *name << " name: ";
 	std::getline(std::cin, *name);
 

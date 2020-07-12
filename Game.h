@@ -1,3 +1,4 @@
+
 #ifndef _GAME_H_
 #define _GAME_H_
 
@@ -17,7 +18,7 @@ public:
 	int setPosition(int r, int c, char user);
 	char getPosition(int row, int col);
 	void printInfo();
-	int fourInRow(char value);
+	int checkFourInRow(char value);
 
 };
 

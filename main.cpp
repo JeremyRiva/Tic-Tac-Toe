@@ -4,9 +4,10 @@
 
 //void initialiseGame();
 
-std::string setPlayerName(std::string* name);
-int playerMove(std::string name, int *coords, Game &g, char val);
-int nextMove(std::string player, int *coords);
+void nextMove(std::string player, int* coords);
+void setPlayerName(std::string* name);
+void playerMove(std::string name, int* coords, Game& g, char val);
+int checkForWin(Game g, std::string name, char val);
 
 int main()
 {
@@ -21,34 +22,19 @@ int main()
 	for (int n{}; n < 8; n++)
 	{
 		playerMove(name1, coordinates, game, 'x');
+
+		if (checkForWin(game, name1, 'x') == -1)
+			exit(0);
+
 		playerMove(name2, coordinates, game, 'o');
-		
-		if (game.checkFourInRow('x') == -1) {
-			std::cout << name1 << " wins!" << std::endl;
-			return 0;
-		}
-		else if (game.checkFourInRow('o') == -1) {
-			std::cout << name2 << " wins!" << std::endl;
-			return 0;
-		}
-		
+
+		if (checkForWin(game, name2, 'o') == -1)
+			exit(0);
 	}
 
 	std::cout << "\nIt is a draw!" << std::endl;
 }
 
-int playerMove(std::string name, int *coords, Game &g, char val) {
-
-	int userInput;
-	do {
-		nextMove(name, coords);
-		userInput = g.setPosition(coords[0], coords[1], val);
-	} while (userInput == -1);
-
-	g.printInfo();
-
-	return 0;
-}
 //**********************************************************
 /*
 void initialiseGame() {
@@ -61,16 +47,40 @@ void initialiseGame() {
 }
 */
 //*************************************************************
-int nextMove(std::string player, int *coords) {
 
-	std::cout << player << "'s turn - row, column: ";
-	std::cin >> coords[0] >> coords[1];
-	return *coords;
+void playerMove(std::string name, int* coords, Game& g, char val)
+{
+	int userInput;
+	do {
+		nextMove(name, coords);
+		userInput = g.setPosition(coords[0], coords[1], val);
+	} while (userInput == -1);
+
+	g.printInfo();
+
+	return;
 }
 
-std::string setPlayerName(std::string* name) {
+int checkForWin(Game g, std::string name, char val)
+{
+	if (g.checkFourInRow(val) == -1) {
+		std::cout << name << " wins!" << std::endl;
+		return -1;
+	}
+
+	return 0;
+}
+
+void nextMove(std::string player, int* coords)
+{
+	std::cout << player << "'s turn - row, column: ";
+	std::cin >> coords[0] >> coords[1];
+	return;
+}
+
+void setPlayerName(std::string* name)
+{
 	std::cout << *name << " name: ";
 	std::getline(std::cin, *name);
-
-	return *name;
+	return;
 }

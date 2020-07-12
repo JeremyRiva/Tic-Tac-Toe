@@ -19,11 +19,11 @@ The game starts displaying a menu as follows:
 ==============================
 ```
 
-If an invalid selection is chosen, an error message is displayed prompting the user to reselect a valid option:
+If an invalid selection is chosen, an error message is displayed prompting the user to reselect a valid option:  
 `invalid option - try again`
 
 When the user selects the play option, the user is prompted to enter a name. 
-The player then is required to choose where to play entering a value for the row and the column.
+The player then is required to choose where to play entering a value for the row and the column.  
 _i.e. if player 1 chooses (2, 3)_ the result will show as follows:
 
 ```
@@ -37,10 +37,10 @@ _i.e. if player 1 chooses (2, 3)_ the result will show as follows:
 ### Error messages
 Error messages are displayed for invalid options.
 
-When the place is already taken on the board the following message is displayed: 
+When the place is already taken on the board the following message is displayed:  
 `position has already been taken - try again`
 
-When the choice is out of range the following message is displayed:
+When the choice is out of range the following message is displayed:  
 `out of range - try again`
 
 

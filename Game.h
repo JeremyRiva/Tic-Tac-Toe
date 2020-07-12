@@ -3,6 +3,7 @@
 #define _GAME_H_
 
 #include <iostream>
+#include <conio.h>
 #define SIZE 4
 
 

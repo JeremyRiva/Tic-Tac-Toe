@@ -5,7 +5,7 @@
 void displayMenu();
 void userHelp();
 int exitGame();
-void invalidSelection();
+//void invalidSelection();
 int initialiseGameMenu();
 
 void setPlayerName(std::string* name);
@@ -55,7 +55,7 @@ void displayMenu() {
 
 void userHelp() {
 	std::cout << "Enter a row value and a column value between 1-4.\n" \
-		"The aim of the game is to score four of a kind in a row." << std::endl;
+		"The aim of the game is to score four of a kind in a row. \n\n";
 }
 
 int exitGame() {
@@ -70,6 +70,7 @@ int exitGame() {
 	return 0;
 }
 
+/*
 void invalidSelection() {
 	// https://stackoverflow.com/questions/5864540/infinite-loop-with-cin-when-typing-string-while-a-number-is-expected
 	// stops character values from corrupting selection
@@ -81,6 +82,7 @@ void invalidSelection() {
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	}
 }
+*/
 
 int initialiseGameMenu()
 {
@@ -89,12 +91,12 @@ int initialiseGameMenu()
 	selection = _getch();
 
 	switch (selection) {
-	case 49:
+	case '1':
 		return 0;
-	case 50:
+	case '2':
 		userHelp();
 		return -1;
-	case 51:
+	case '3':
 	{
 		if (exitGame() == -1) {
 			exit(0);
@@ -103,12 +105,11 @@ int initialiseGameMenu()
 	}
 	default:
 	{
-		invalidSelection();
+		//invalidSelection();
 		std::cout << "invalid option - try again" << std::endl;
 		return -1;
 	}
 	}
-	
 }
 
 void setPlayerName(std::string* name)

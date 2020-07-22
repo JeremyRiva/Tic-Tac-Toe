@@ -1,0 +1,7 @@
+# Visual studio
+
+.vs
+/Debug
+*.vcxpro*
+#*.vcxproj*
+*.sln
